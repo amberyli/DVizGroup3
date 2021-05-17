@@ -1,6 +1,7 @@
 # City Transformation - London Fire Brigade
 
-Contributor: Botond Vegh, Yue Li, Qia Chen, Hanxiang Yang
+Following the order of portfolios, our members are: Qia Chen, Yue Li, Hanxiang Yang, Botond Vegh
+
 
 [View our website](https://amberyli.github.io/DVizGroup3/)
 
