@@ -2,7 +2,6 @@
 
 Contributor:
 
-[View our website]()
-
-[See our presentation video]()
+- [x] [View our website]( https://amberyli.github.io/DVizGroup3.github.io/)
+- [ ] [See our presentation video]()
 
