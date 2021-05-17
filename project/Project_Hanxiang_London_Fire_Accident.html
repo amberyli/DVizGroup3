@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Attendance time of London fire brigade</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css" rel="stylesheet" />
+
+<script charset="utf-8" src="https://d3js.org/d3.v4.min.js"></script>
+
+
+<style>
+
+    body { margin: 0; padding: 0; }
+
+
+    #title {
+        position: absolute;
+        background-color: #fff;
+        box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
+        border-radius: 3px;
+        padding: 15px;
+        margin-top: 15px;
+        margin-left: 15px;
+    }
+
+    #title h2 {
+        line-height: 24px;
+        margin: 0;
+    }
+
+    #title p.credit {
+       margin: 10px 0 0 0;
+       padding: 0;
+    }
+    
+    .legend {
+        background-color: #fff;
+        border-radius: 3px;
+        bottom: 30px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        padding: 10px;
+        position: absolute;
+        right: 10px;
+        z-index: 1;
+    }
+ 
+    .legend h4 {
+        margin: 0 0 10px;
+    }
+ 
+    .legend div span {
+        border-radius: 50%;
+        display: inline-block;
+        height: 10px;
+        margin-right: 5px;
+        width: 10px;
+    }
+       
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; };
+    
+</style>
+</head>
+
+<body>
+
+    <div id="map"></div>
+    
+    <div id="title">
+        <h2>Attendance time of London fire brigade</h2> 
+         <p class="credit">Data: <a href="https://data.london.gov.uk/dataset/london-fire-brigade-incident-records">London Fire Brigade Incident Records</a>.</p>
+
+    <div class='map-overlay top'>
+    <div class='map-overlay-inner'>
+        <p>Year: </p>
+		<table><tr><td>
+        <input id='slider' type='range' min='0' max='12' step='1' value='12' list='tickmarks' />
+        <datalist id="tickmarks">
+		  <option value="0" label="2009">
+		  <option value="1" label="2010">
+          <option value="2" label="2011">
+          <option value="3" label="2012">
+          <option value="4" label="2013">
+          <option value="5" label="2014">
+          <option value="6" label="2015">
+          <option value="7" label="2016">
+          <option value="8" label="2017">
+          <option value="9" label="2018">
+          <option value="10" label="2019">
+		  <option value="11" label="2020">
+          <option value="12" label="2021">
+		  </datalist>
+		 </td>
+		 <td>
+		  <label id='year'>2021</label>
+         </td>
+         </tr></table>
+    </div>
+    </div> 
+    </div>
+    
+    <div id="time-legend" class="legend">
+        <h4>Arrving time(seconds)</h4>
+        <div><span style="background-color: hsl(0, 100%, 52%)"></span>600</div>
+        <div><span style="background-color: hsl(55, 88%, 69%)"></span>360</div>
+        <div><span style="background-color: hsl(171, 95%, 63%)"></span>120</div>
+        <div><span style="background-color: hsl(171, 95%, 63%)"></span>0</div>
+    </div>
+
+        
+<script>
+    
+    var years = [
+        '2009',
+        '2010',
+        '2011',
+        '2012',
+        '2013',
+        '2014',
+        '2015',
+        '2016',
+        '2017',
+        '2018',
+        '2019',
+        '2020',
+        '2021'
+    ];
+    
+    var selectyear = 2021;
+    console.log(selectyear);
+  
+
+	mapboxgl.accessToken = 'pk.eyJ1IjoidHRvbnNzcyIsImEiOiJja2t0cjc0bm40MjBnMm9xdDgwZmZuZzhqIn0.NfN1uAFpBdGBpUOas3vGfg';
+
+        // Load a new map in the 'map' HTML div
+        var map = new mapboxgl.Map({
+            container: 'map', // container id
+            style: 'mapbox://styles/ttonsss/ckon1hktu38sv18ozog4gyg25',
+            center: [-0.1, 51.5], // starting position [lng, lat]
+            zoom: 9.5 // starting zoom
+        });
+    
+    map.addControl(new mapboxgl.NavigationControl()); 
+    map.touchZoomRotate.disableRotation();
+    
+    map.on('load', function() {
+            map.setLayoutProperty(selectyear, 'visibility', 'visible');
+        
+        });
+    document.getElementById('slider').addEventListener('input', function(e) {
+        var year = parseInt(e.target.value);
+        document.getElementById('year').textContent = years[year];
+        map.setLayoutProperty(selectyear, 'visibility', 'none');
+        
+        selectyear = years[year];
+        console.log(selectyear);
+        
+        map.setLayoutProperty(selectyear, 'visibility', 'visible');
+        
+        
+    });
+    
+    
+
+</script>
+
+</body>
+</html>

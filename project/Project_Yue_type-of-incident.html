@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <!-- CSS style -->
+    <style>
+        #selector_year {
+            float: right
+        }
+
+        #container1 {
+            margin: 0 auto;
+            width: 46%;
+            margin-left: 25%;
+            margin-top: 2%
+        }
+
+    </style>
+
+    <!-- Use highcharts  -->
+    <!-- highchart script 1-->
+    <script src="https://code.highcharts.com/highcharts.js">
+    </script>
+    <!-- highchart script 2-->
+    <script src="https://code.highcharts.com.cn/highcharts/modules/exporting.js">
+    </script>
+    <!-- highchart script 3-->
+    <script src="https://code.highcharts.com.cn/highcharts/modules/sunburst.js"></script>
+
+</head>
+
+<body>
+
+
+    <!-- Add selector to choose years -->
+    <select class="dropdown" id="selector_year">
+        <option selected disabled>Which year you want to explore ;)</option>
+        <option value="0">2009</option>
+        <option value="1">2010</option>
+        <option value="2">2011</option>
+        <option value="3">2012</option>
+        <option value="4">2013</option>
+        <option value="5">2014</option>
+        <option value="6">2015</option>
+        <option value="7">2016</option>
+        <option value="8">2017</option>
+        <option value="9">2018</option>
+        <option value="10">2019</option>
+        <option value="11">2020</option>
+    </select>
+
+
+
+    <!-- load data -->
+    <script>
+        // year 2009
+        var data_2009 = [
+            { "id": "y0.0", "parent": "", "name": "Year 2009", "value": 135016 },
+            { "id": "y1.1", "parent": "y0.0", "name": "False Alarm", "value": 63327 },
+            { "id": "y1.2", "parent": "y0.0", "name": "Fire", "value": 29739 },
+            { "id": "y1.3", "parent": "y0.0", "name": "Special Service", "value": 41950 },
+            { "id": "y2.01", "parent": "y1.1", "name": "AFA (Automatic Fire Alarms)", "value": 45081 },
+            { "id": "y2.02", "parent": "y1.1", "name": "Good intent", "value": 15625 },
+            { "id": "y2.03", "parent": "y1.1", "name": "Malicious Call", "value": 2621 },
+            { "id": "y2.04", "parent": "y1.2", "name": "Chimney Fire", "value": 35 },
+            { "id": "y2.05", "parent": "y1.2", "name": "Late Call", "value": 73 },
+            { "id": "y2.06", "parent": "y1.2", "name": "Primary Fire", "value": 14206 },
+            { "id": "y2.07", "parent": "y1.2", "name": "Secondary Fire", "value": 15425 },
+            { "id": "y2.08", "parent": "y1.3", "name": "Advice Only", "value": 328 },
+            { "id": "y2.09", "parent": "y1.3", "name": "Animal assistance incidents", "value": 568 },
+            { "id": "y2.10", "parent": "y1.3", "name": "Assist other agencies", "value": 1022 },
+            { "id": "y2.11", "parent": "y1.3", "name": "Effecting entry/exit", "value": 7709 },
+            { "id": "y2.12", "parent": "y1.3", "name": "Evacuation (no fire)", "value": 354 },
+            { "id": "y2.13", "parent": "y1.3", "name": "Flood call attended - Batch mobilised", "value": 331 },
+            { "id": "y2.14", "parent": "y1.3", "name": "Flooding", "value": 7065 },
+            { "id": "y2.15", "parent": "y1.3", "name": "Hazardous Materials incident", "value": 406 },
+            { "id": "y2.16", "parent": "y1.3", "name": "Lift Release", "value": 13546 },
+            { "id": "y2.17", "parent": "y1.3", "name": "Making Safe (not RTC)", "value": 980 },
+            { "id": "y2.18", "parent": "y1.3", "name": "Medical Incident", "value": 252 },
+            { "id": "y2.19", "parent": "y1.3", "name": "No action (not false alarm)", "value": 2051 },
+            { "id": "y2.20", "parent": "y1.3", "name": "Other Transport incident", "value": 380 },
+            { "id": "y2.21", "parent": "y1.3", "name": "Other rescue/release of persons", "value": 635 },
+            { "id": "y2.22", "parent": "y1.3", "name": "RTC (Road Traffic Collision)", "value": 4028 },
+            { "id": "y2.23", "parent": "y1.3", "name": "Removal of objects from people", "value": 293 },
+            { "id": "y2.24", "parent": "y1.3", "name": "Rescue or evacuation from water", "value": 47 },
+            { "id": "y2.25", "parent": "y1.3", "name": "Spills and Leaks (not RTC)", "value": 1580 },
+            { "id": "y2.26", "parent": "y1.3", "name": "Stand By", "value": 123 },
+            { "id": "y2.27", "parent": "y1.3", "name": "Suicide/attempts", "value": 201 },
+            { "id": "y2.28", "parent": "y1.3", "name": "Water provision", "value": 51 }
+        ];
+
+        // year 2010
+        var data_2010 = [
+            { "id": "y0.0", "parent": "", "name": "Year 2010", "value": 125500 },
+            { "id": "y1.1", "parent": "y0.0", "name": "False Alarm", "value": 60911 },
+            { "id": "y1.2", "parent": "y0.0", "name": "Fire", "value": 27559 },
+            { "id": "y1.3", "parent": "y0.0", "name": "Special Service", "value": 37030 },
+            { "id": "y2.01", "parent": "y1.1", "name": "AFA (Automatic Fire Alarms)", "value": 44143 },
+            { "id": "y2.02", "parent": "y1.1", "name": "Good intent", "value": 14474 },
+            { "id": "y2.03", "parent": "y1.1", "name": "Malicious Call", "value": 2294 },
+            { "id": "y2.04", "parent": "y1.2", "name": "Chimney Fire", "value": 50 },
+            { "id": "y2.05", "parent": "y1.2", "name": "Late Call", "value": 17 },
+            { "id": "y2.06", "parent": "y1.2", "name": "Primary Fire", "value": 13564 },
+            { "id": "y2.07", "parent": "y1.2", "name": "Secondary Fire", "value": 13928 },
+            { "id": "y2.08", "parent": "y1.3", "name": "Advice Only", "value": 413 },
+            { "id": "y2.09", "parent": "y1.3", "name": "Animal assistance incidents", "value": 611 },
+            { "id": "y2.10", "parent": "y1.3", "name": "Assist other agencies", "value": 909 },
+            { "id": "y2.11", "parent": "y1.3", "name": "Effecting entry/exit", "value": 7260 },
+            { "id": "y2.12", "parent": "y1.3", "name": "Evacuation (no fire)", "value": 347 },
+            { "id": "y2.13", "parent": "y1.3", "name": "Flood call attended - Batch mobilised", "value": 71 },
+            { "id": "y2.14", "parent": "y1.3", "name": "Flooding", "value": 7309 },
+            { "id": "y2.15", "parent": "y1.3", "name": "Hazardous Materials incident", "value": 363 },
+            { "id": "y2.16", "parent": "y1.3", "name": "Lift Release", "value": 9872 },
+            { "id": "y2.17", "parent": "y1.3", "name": "Making Safe (not RTC)", "value": 838 },
+            { "id": "y2.18", "parent": "y1.3", "name": "Medical Incident", "value": 270 },
+            { "id": "y2.19", "parent": "y1.3", "name": "No action (not false alarm)", "value": 2095 },
+            { "id": "y2.20", "parent": "y1.3", "name": "Other Transport incident", "value": 305 },
+            { "id": "y2.21", "parent": "y1.3", "name": "Other rescue/release of persons", "value": 480 },
+            { "id": "y2.22", "parent": "y1.3", "name": "RTC (Road Traffic Collision)", "value": 3668 },
+            { "id": "y2.23", "parent": "y1.3", "name": "Removal of objects from people", "value": 290 },
+            { "id": "y2.24", "parent": "y1.3", "name": "Rescue or evacuation from water", "value": 42 },
+            { "id": "y2.25", "parent": "y1.3", "name": "Spills and Leaks (not RTC)", "value": 1498 },
+            { "id": "y2.26", "parent": "y1.3", "name": "Stand By", "value": 126 },
+            { "id": "y2.27", "parent": "y1.3", "name": "Suicide/attempts", "value": 220 },
+            { "id": "y2.28", "parent": "y1.3", "name": "Water provision", "value": 43 }
+        ];
+
+        // 2011
+        var data_2011 = [
+            { "id": "y0.0", "parent": "", "name": "Year 2011", "value": 115650 },
+            { "id": "y1.1", "parent": "y0.0", "name": "False Alarm", "value": 56143 },
+            { "id": "y1.2", "parent": "y0.0", "name": "Fire", "value": 26899 },
+            { "id": "y1.3", "parent": "y0.0", "name": "Special Service", "value": 32608 },
+            { "id": "y2.01", "parent": "y1.1", "name": "AFA (Automatic Fire Alarms)", "value": 40832 },
+            { "id": "y2.02", "parent": "y1.1", "name": "Good intent", "value": 13158 },
+            { "id": "y2.03", "parent": "y1.1", "name": "Malicious Call", "value": 2153 },
+            { "id": "y2.04", "parent": "y1.2", "name": "Chimney Fire", "value": 56 },
+            { "id": "y2.05", "parent": "y1.2", "name": "Late Call", "value": 20 },
+            { "id": "y2.06", "parent": "y1.2", "name": "Primary Fire", "value": 12925 },
+            { "id": "y2.07", "parent": "y1.2", "name": "Secondary Fire", "value": 13898 },
+            { "id": "y2.08", "parent": "y1.3", "name": "Advice Only", "value": 468 },
+            { "id": "y2.09", "parent": "y1.3", "name": "Animal assistance incidents", "value": 620 },
+            { "id": "y2.10", "parent": "y1.3", "name": "Assist other agencies", "value": 775 },
+            { "id": "y2.11", "parent": "y1.3", "name": "Effecting entry/exit", "value": 6928 },
+            { "id": "y2.12", "parent": "y1.3", "name": "Evacuation (no fire)", "value": 297 },
+            { "id": "y2.13", "parent": "y1.3", "name": "Flood call attended - Batch mobilised", "value": 7 },
+            { "id": "y2.14", "parent": "y1.3", "name": "Flooding", "value": 5886 },
+            { "id": "y2.15", "parent": "y1.3", "name": "Hazardous Materials incident", "value": 342 },
+            { "id": "y2.16", "parent": "y1.3", "name": "Lift Release", "value": 7840 },
+            { "id": "y2.17", "parent": "y1.3", "name": "Making Safe (not RTC)", "value": 746 },
+            { "id": "y2.18", "parent": "y1.3", "name": "Medical Incident", "value": 337 },
+            { "id": "y2.19", "parent": "y1.3", "name": "No action (not false alarm)", "value": 2082 },
+            { "id": "y2.20", "parent": "y1.3", "name": "Other Transport incident", "value": 262 },
+            { "id": "y2.21", "parent": "y1.3", "name": "Other rescue/release of persons", "value": 451 },
+            { "id": "y2.22", "parent": "y1.3", "name": "RTC (Road Traffic Collision)", "value": 3534 },
+            { "id": "y2.23", "parent": "y1.3", "name": "Removal of objects from people", "value": 281 },
+            { "id": "y2.24", "parent": "y1.3", "name": "Rescue or evacuation from water", "value": 48 },
+            { "id": "y2.25", "parent": "y1.3", "name": "Spills and Leaks (not RTC)", "value": 1353 },
+            { "id": "y2.26", "parent": "y1.3", "name": "Stand By", "value": 122 },
+            { "id": "y2.27", "parent": "y1.3", "name": "Suicide/attempts", "value": 196 },
+            { "id": "y2.28", "parent": "y1.3", "name": "Water provision", "value": 33 }
+        ]
+        // 2012
+        var data_2012 = [
+            { "id": "y0.0", "parent": "", "name": "Year 2012", "value": 108890 },
+            { "id": "y1.1", "parent": "y0.0", "name": "False Alarm", "value": 54004 },
+            { "id": "y1.2", "parent": "y0.0", "name": "Fire", "value": 21487 },
+            { "id": "y1.3", "parent": "y0.0", "name": "Special Service", "value": 33399 },
+            { "id": "y2.01", "parent": "y1.1", "name": "AFA (Automatic Fire Alarms)", "value": 39934 },
+            { "id": "y2.02", "parent": "y1.1", "name": "Good intent", "value": 12277 },
+            { "id": "y2.03", "parent": "y1.1", "name": "Malicious Call", "value": 1793 },
+            { "id": "y2.04", "parent": "y1.2", "name": "Chimney Fire", "value": 70 },
+            { "id": "y2.05", "parent": "y1.2", "name": "Late Call", "value": 16 },
+            { "id": "y2.06", "parent": "y1.2", "name": "Primary Fire", "value": 11689 },
+            { "id": "y2.07", "parent": "y1.2", "name": "Secondary Fire", "value": 9712 },
+            { "id": "y2.08", "parent": "y1.3", "name": "Advice Only", "value": 476 },
+            { "id": "y2.09", "parent": "y1.3", "name": "Animal assistance incidents", "value": 603 },
+            { "id": "y2.10", "parent": "y1.3", "name": "Assist other agencies", "value": 689 },
+            { "id": "y2.11", "parent": "y1.3", "name": "Effecting entry/exit", "value": 7088 },
+            { "id": "y2.12", "parent": "y1.3", "name": "Evacuation (no fire)", "value": 273 },
+            { "id": "y2.13", "parent": "y1.3", "name": "Flood call attended - Batch mobilised", "value": 39 },
+            { "id": "y2.14", "parent": "y1.3", "name": "Flooding", "value": 7052 },
+            { "id": "y2.15", "parent": "y1.3", "name": "Hazardous Materials incident", "value": 349 },
+            { "id": "y2.16", "parent": "y1.3", "name": "Lift Release", "value": 6672 },
+            { "id": "y2.17", "parent": "y1.3", "name": "Making Safe (not RTC)", "value": 904 },
+            { "id": "y2.18", "parent": "y1.3", "name": "Medical Incident", "value": 417 },
+            { "id": "y2.19", "parent": "y1.3", "name": "No action (not false alarm)", "value": 2190 },
+            { "id": "y2.20", "parent": "y1.3", "name": "Other Transport incident", "value": 389 },
+            { "id": "y2.21", "parent": "y1.3", "name": "Other rescue/release of persons", "value": 394 },
+            { "id": "y2.22", "parent": "y1.3", "name": "RTC (Road Traffic Collision)", "value": 3779 },
+            { "id": "y2.23", "parent": "y1.3", "name": "Removal of objects from people", "value": 347 },
+            { "id": "y2.24", "parent": "y1.3", "name": "Rescue or evacuation from water", "value": 52 },
+            { "id": "y2.25", "parent": "y1.3", "name": "Spills and Leaks (not RTC)", "value": 1357 },
+            { "id": "y2.26", "parent": "y1.3", "name": "Stand By", "value": 104 },
+            { "id": "y2.27", "parent": "y1.3", "name": "Suicide/attempts", "value": 215 },
+            { "id": "y2.28", "parent": "y1.3", "name": "Water provision", "value": 10 }
+        ];
+        // 2013
+        var data_2013 = [
+            { "id": "y0.0", "parent": "", "name": "Year 2013", "value": 103605 },
+            { "id": "y1.1", "parent": "y0.0", "name": "False Alarm", "value": 51057 },
+            { "id": "y1.2", "parent": "y0.0", "name": "Fire", "value": 21275 },
+            { "id": "y1.3", "parent": "y0.0", "name": "Special Service", "value": 31273 },
+            { "id": "y2.01", "parent": "y1.1", "name": "AFA (Automatic Fire Alarms)", "value": 38124 },
+            { "id": "y2.02", "parent": "y1.1", "name": "Good intent", "value": 11442 },
+            { "id": "y2.03", "parent": "y1.1", "name": "Malicious Call", "value": 1491 },
+            { "id": "y2.04", "parent": "y1.2", "name": "Chimney Fire", "value": 78 },
+            { "id": "y2.05", "parent": "y1.2", "name": "Late Call", "value": 12 },
+            { "id": "y2.06", "parent": "y1.2", "name": "Primary Fire", "value": 11367 },
+            { "id": "y2.07", "parent": "y1.2", "name": "Secondary Fire", "value": 9818 },
+            { "id": "y2.08", "parent": "y1.3", "name": "Advice Only", "value": 485 },
+            { "id": "y2.09", "parent": "y1.3", "name": "Animal assistance incidents", "value": 585 },
+            { "id": "y2.10", "parent": "y1.3", "name": "Assist other agencies", "value": 566 },
+            { "id": "y2.11", "parent": "y1.3", "name": "Effecting entry/exit", "value": 6651 },
+            { "id": "y2.12", "parent": "y1.3", "name": "Evacuation (no fire)", "value": 212 },
+            { "id": "y2.13", "parent": "y1.3", "name": "Flood call attended - Batch mobilised", "value": 128 },
+            { "id": "y2.14", "parent": "y1.3", "name": "Flooding", "value": 6257 },
+            { "id": "y2.15", "parent": "y1.3", "name": "Hazardous Materials incident", "value": 294 },
+            { "id": "y2.16", "parent": "y1.3", "name": "Lift Release", "value": 5735 },
+            { "id": "y2.17", "parent": "y1.3", "name": "Making Safe (not RTC)", "value": 1329 },
+            { "id": "y2.18", "parent": "y1.3", "name": "Medical Incident", "value": 468 },
+            { "id": "y2.19", "parent": "y1.3", "name": "No action (not false alarm)", "value": 2233 },
+            { "id": "y2.20", "parent": "y1.3", "name": "Other Transport incident", "value": 369 },
+            { "id": "y2.21", "parent": "y1.3", "name": "Other rescue/release of persons", "value": 354 },
+            { "id": "y2.22", "parent": "y1.3", "name": "RTC (Road Traffic Collision)", "value": 3651 },
+            { "id": "y2.23", "parent": "y1.3", "name": "Removal of objects from people", "value": 369 },
+            { "id": "y2.24", "parent": "y1.3", "name": "Rescue or evacuation from water", "value": 46 },
+            { "id": "y2.25", "parent": "y1.3", "name": "Spills and Leaks (not RTC)", "value": 1245 },
+            { "id": "y2.26", "parent": "y1.3", "name": "Stand By", "value": 89 },
+            { "id": "y2.27", "parent": "y1.3", "name": "Suicide/attempts", "value": 203 },
+            { "id": "y2.28", "parent": "y1.3", "name": "Water provision", "value": 4 }
+        ]
+        // 2014
+        var data_2014 = [
+            { "id": "y0.0", "parent": "", "name": "Year 2014", "value": 96591 },
+            { "id": "y1.1", "parent": "y0.0", "name": "False Alarm", "value": 47783 },
+            { "id": "y1.2", "parent": "y0.0", "name": "Fire", "value": 19764 },
+            { "id": "y1.3", "parent": "y0.0", "name": "Special Service", "value": 29044 },
+            { "id": "y2.01", "parent": "y1.1", "name": "AFA (Automatic Fire Alarms)", "value": 35376 },
+            { "id": "y2.02", "parent": "y1.1", "name": "Good intent", "value": 10990 },
+            { "id": "y2.03", "parent": "y1.1", "name": "Malicious Call", "value": 1417 },
+            { "id": "y2.04", "parent": "y1.2", "name": "Chimney Fire", "value": 48 },
+            { "id": "y2.05", "parent": "y1.2", "name": "Late Call", "value": 14 },
+            { "id": "y2.06", "parent": "y1.2", "name": "Primary Fire", "value": 10773 },
+            { "id": "y2.07", "parent": "y1.2", "name": "Secondary Fire", "value": 8929 },
+            { "id": "y2.08", "parent": "y1.3", "name": "Advice Only", "value": 401 },
+            { "id": "y2.09", "parent": "y1.3", "name": "Animal assistance incidents", "value": 583 },
+            { "id": "y2.10", "parent": "y1.3", "name": "Assist other agencies", "value": 560 },
+            { "id": "y2.11", "parent": "y1.3", "name": "Effecting entry/exit", "value": 6324 },
+            { "id": "y2.12", "parent": "y1.3", "name": "Evacuation (no fire)", "value": 174 },
+            { "id": "y2.13", "parent": "y1.3", "name": "Flood call attended - Batch mobilised", "value": 86 },
+            { "id": "y2.14", "parent": "y1.3", "name": "Flooding", "value": 6140 },
+            { "id": "y2.15", "parent": "y1.3", "name": "Hazardous Materials incident", "value": 268 },
+            { "id": "y2.16", "parent": "y1.3", "name": "Lift Release", "value": 4746 },
+            { "id": "y2.17", "parent": "y1.3", "name": "Making Safe (not RTC)", "value": 1113 },
+            { "id": "y2.18", "parent": "y1.3", "name": "Medical Incident", "value": 389 },
+            { "id": "y2.19", "parent": "y1.3", "name": "No action (not false alarm)", "value": 1941 },
+            { "id": "y2.20", "parent": "y1.3", "name": "Other Transport incident", "value": 346 },
+            { "id": "y2.21", "parent": "y1.3", "name": "Other rescue/release of persons", "value": 388 },
+            { "id": "y2.22", "parent": "y1.3", "name": "RTC (Road Traffic Collision)", "value": 3795 },
+            { "id": "y2.23", "parent": "y1.3", "name": "Removal of objects from people", "value": 319 },
+            { "id": "y2.24", "parent": "y1.3", "name": "Rescue or evacuation from water", "value": 49 },
+            { "id": "y2.25", "parent": "y1.3", "name": "Spills and Leaks (not RTC)", "value": 1145 },
+            { "id": "y2.26", "parent": "y1.3", "name": "Stand By", "value": 85 },
+            { "id": "y2.27", "parent": "y1.3", "name": "Suicide/attempts", "value": 189 },
+            { "id": "y2.28", "parent": "y1.3", "name": "Water provision", "value": 3 }
+        ]
+        // 2015
+        var data_2015 = [
+            { "id": "y0.0", "parent": "", "name": "Year 2015", "value": 98353 },
+            { "id": "y1.1", "parent": "y0.0", "name": "False Alarm", "value": 47800 },
+            { "id": "y1.2", "parent": "y0.0", "name": "Fire", "value": 21070 },
+            { "id": "y1.3", "parent": "y0.0", "name": "Special Service", "value": 29483 },
+            { "id": "y2.01", "parent": "y1.1", "name": "AFA (Automatic Fire Alarms)", "value": 35367 },
+            { "id": "y2.02", "parent": "y1.1", "name": "Good intent", "value": 11115 },
+            { "id": "y2.03", "parent": "y1.1", "name": "Malicious Call", "value": 1318 },
+            { "id": "y2.04", "parent": "y1.2", "name": "Chimney Fire", "value": 49 },
+            { "id": "y2.05", "parent": "y1.2", "name": "Late Call", "value": 15 },
+            { "id": "y2.06", "parent": "y1.2", "name": "Primary Fire", "value": 10904 },
+            { "id": "y2.07", "parent": "y1.2", "name": "Secondary Fire", "value": 10102 },
+            { "id": "y2.08", "parent": "y1.3", "name": "Advice Only", "value": 447 },
+            { "id": "y2.09", "parent": "y1.3", "name": "Animal assistance incidents", "value": 540 },
+            { "id": "y2.10", "parent": "y1.3", "name": "Assist other agencies", "value": 555 },
+            { "id": "y2.11", "parent": "y1.3", "name": "Effecting entry/exit", "value": 6246 },
+            { "id": "y2.12", "parent": "y1.3", "name": "Evacuation (no fire)", "value": 168 },
+            { "id": "y2.13", "parent": "y1.3", "name": "Flood call attended - Batch mobilised", "value": 86 },
+            { "id": "y2.14", "parent": "y1.3", "name": "Flooding", "value": 6266 },
+            { "id": "y2.15", "parent": "y1.3", "name": "Hazardous Materials incident", "value": 322 },
+            { "id": "y2.16", "parent": "y1.3", "name": "Lift Release", "value": 4856 },
+            { "id": "y2.17", "parent": "y1.3", "name": "Making Safe (not RTC)", "value": 904 },
+            { "id": "y2.18", "parent": "y1.3", "name": "Medical Incident", "value": 414 },
+            { "id": "y2.19", "parent": "y1.3", "name": "No action (not false alarm)", "value": 2030 },
+            { "id": "y2.20", "parent": "y1.3", "name": "Other Transport incident", "value": 334 },
+            { "id": "y2.21", "parent": "y1.3", "name": "Other rescue/release of persons", "value": 379 },
+            { "id": "y2.22", "parent": "y1.3", "name": "RTC (Road Traffic Collision)", "value": 4126 },
+            { "id": "y2.23", "parent": "y1.3", "name": "Removal of objects from people", "value": 342 },
+            { "id": "y2.24", "parent": "y1.3", "name": "Rescue or evacuation from water", "value": 49 },
+            { "id": "y2.25", "parent": "y1.3", "name": "Spills and Leaks (not RTC)", "value": 1152 },
+            { "id": "y2.26", "parent": "y1.3", "name": "Stand By", "value": 65 },
+            { "id": "y2.27", "parent": "y1.3", "name": "Suicide/attempts", "value": 200 },
+            { "id": "y2.28", "parent": "y1.3", "name": "Water provision", "value": 2 }
+        ]
+        // 2016
+        var data_2016 = [
+            { "id": "y0.0", "parent": "", "name": "Year 2016", "value": 105435 },
+            { "id": "y1.1", "parent": "y0.0", "name": "False Alarm", "value": 51604 },
+            { "id": "y1.2", "parent": "y0.0", "name": "Fire", "value": 20545 },
+            { "id": "y1.3", "parent": "y0.0", "name": "Special Service", "value": 33286 },
+            { "id": "y2.01", "parent": "y1.1", "name": "AFA (Automatic Fire Alarms)", "value": 38544 },
+            { "id": "y2.02", "parent": "y1.1", "name": "Good intent", "value": 11678 },
+            { "id": "y2.03", "parent": "y1.1", "name": "Malicious Call", "value": 1382 },
+            { "id": "y2.04", "parent": "y1.2", "name": "Chimney Fire", "value": 37 },
+            { "id": "y2.05", "parent": "y1.2", "name": "Late Call", "value": 20 },
+            { "id": "y2.06", "parent": "y1.2", "name": "Primary Fire", "value": 10681 },
+            { "id": "y2.07", "parent": "y1.2", "name": "Secondary Fire", "value": 9807 },
+            { "id": "y2.08", "parent": "y1.3", "name": "Advice Only", "value": 495 },
+            { "id": "y2.09", "parent": "y1.3", "name": "Animal assistance incidents", "value": 603 },
+            { "id": "y2.10", "parent": "y1.3", "name": "Assist other agencies", "value": 602 },
+            { "id": "y2.11", "parent": "y1.3", "name": "Effecting entry/exit", "value": 6622 },
+            { "id": "y2.12", "parent": "y1.3", "name": "Evacuation (no fire)", "value": 180 },
+            { "id": "y2.13", "parent": "y1.3", "name": "Flood call attended - Batch mobilised", "value": 385 },
+            { "id": "y2.14", "parent": "y1.3", "name": "Flooding", "value": 6668 },
+            { "id": "y2.15", "parent": "y1.3", "name": "Hazardous Materials incident", "value": 417 },
+            { "id": "y2.16", "parent": "y1.3", "name": "Lift Release", "value": 5078 },
+            { "id": "y2.17", "parent": "y1.3", "name": "Making Safe (not RTC)", "value": 898 },
+            { "id": "y2.18", "parent": "y1.3", "name": "Medical Incident", "value": 521 },
+            { "id": "y2.19", "parent": "y1.3", "name": "Medical Incident - Co-responder", "value": 1532 },
+            { "id": "y2.20", "parent": "y1.3", "name": "No action (not false alarm)", "value": 2103 },
+            { "id": "y2.21", "parent": "y1.3", "name": "Other Transport incident", "value": 351 },
+            { "id": "y2.22", "parent": "y1.3", "name": "Other rescue/release of persons", "value": 370 },
+            { "id": "y2.23", "parent": "y1.3", "name": "RTC (Road Traffic Collision)", "value": 4638 },
+            { "id": "y2.24", "parent": "y1.3", "name": "Removal of objects from people", "value": 353 },
+            { "id": "y2.25", "parent": "y1.3", "name": "Rescue or evacuation from water", "value": 48 },
+            { "id": "y2.26", "parent": "y1.3", "name": "Spills and Leaks (not RTC)", "value": 1131 },
+            { "id": "y2.27", "parent": "y1.3", "name": "Stand By", "value": 73 },
+            { "id": "y2.28", "parent": "y1.3", "name": "Suicide/attempts", "value": 216 },
+            { "id": "y2.29", "parent": "y1.3", "name": "Unclassified", "value": 2 }
+        ]
+        // 2017
+        var data_2017 = [
+            { "id": "y0.0", "parent": "", "name": "Year 2017", "value": 103514 },
+            { "id": "y1.1", "parent": "y0.0", "name": "False Alarm", "value": 51727 },
+            { "id": "y1.2", "parent": "y0.0", "name": "Fire", "value": 19856 },
+            { "id": "y1.3", "parent": "y0.0", "name": "Special Service", "value": 31931 },
+            { "id": "y2.01", "parent": "y1.1", "name": "AFA (Automatic Fire Alarms)", "value": 39046 },
+            { "id": "y2.02", "parent": "y1.1", "name": "Good intent", "value": 11361 },
+            { "id": "y2.03", "parent": "y1.1", "name": "Malicious Call", "value": 1320 },
+            { "id": "y2.04", "parent": "y1.2", "name": "Chimney Fire", "value": 25 },
+            { "id": "y2.05", "parent": "y1.2", "name": "Late Call", "value": 11 },
+            { "id": "y2.06", "parent": "y1.2", "name": "Primary Fire", "value": 10740 },
+            { "id": "y2.07", "parent": "y1.2", "name": "Secondary Fire", "value": 9080 },
+            { "id": "y2.08", "parent": "y1.3", "name": "Advice Only", "value": 514 },
+            { "id": "y2.09", "parent": "y1.3", "name": "Animal assistance incidents", "value": 539 },
+            { "id": "y2.10", "parent": "y1.3", "name": "Assist other agencies", "value": 602 },
+            { "id": "y2.11", "parent": "y1.3", "name": "Effecting entry/exit", "value": 6575 },
+            { "id": "y2.12", "parent": "y1.3", "name": "Evacuation (no fire)", "value": 175 },
+            { "id": "y2.13", "parent": "y1.3", "name": "Flood call attended - Batch mobilised", "value": 70 },
+            { "id": "y2.14", "parent": "y1.3", "name": "Flooding", "value": 6548 },
+            { "id": "y2.15", "parent": "y1.3", "name": "Hazardous Materials incident", "value": 554 },
+            { "id": "y2.16", "parent": "y1.3", "name": "Lift Release", "value": 5171 },
+            { "id": "y2.17", "parent": "y1.3", "name": "Making Safe (not RTC)", "value": 1011 },
+            { "id": "y2.18", "parent": "y1.3", "name": "Medical Incident", "value": 533 },
+            { "id": "y2.19", "parent": "y1.3", "name": "Medical Incident - Co-responder", "value": 664 },
+            { "id": "y2.20", "parent": "y1.3", "name": "No action (not false alarm)", "value": 2138 },
+            { "id": "y2.21", "parent": "y1.3", "name": "Other Transport incident", "value": 326 },
+            { "id": "y2.22", "parent": "y1.3", "name": "Other rescue/release of persons", "value": 358 },
+            { "id": "y2.23", "parent": "y1.3", "name": "RTC (Road Traffic Collision)", "value": 4452 },
+            { "id": "y2.24", "parent": "y1.3", "name": "Removal of objects from people", "value": 401 },
+            { "id": "y2.25", "parent": "y1.3", "name": "Rescue or evacuation from water", "value": 40 },
+            { "id": "y2.26", "parent": "y1.3", "name": "Spills and Leaks (not RTC)", "value": 964 },
+            { "id": "y2.27", "parent": "y1.3", "name": "Stand By", "value": 73 },
+            { "id": "y2.28", "parent": "y1.3", "name": "Suicide/attempts", "value": 219 },
+            { "id": "y2.29", "parent": "y1.3", "name": "Use of Special Operations Room", "value": 3 },
+            { "id": "y2.30", "parent": "y1.3", "name": "Water provision", "value": 1 }
+        ]
+        // 2018
+        var data_2018 = [
+            { "id": "y0.0", "parent": "", "name": "Year 2018", "value": 105974 },
+            { "id": "y1.1", "parent": "y0.0", "name": "False Alarm", "value": 52856 },
+            { "id": "y1.2", "parent": "y0.0", "name": "Fire", "value": 19661 },
+            { "id": "y1.3", "parent": "y0.0", "name": "Special Service", "value": 33457 },
+            { "id": "y2.01", "parent": "y1.1", "name": "AFA (Automatic Fire Alarms)", "value": 39864 },
+            { "id": "y2.02", "parent": "y1.1", "name": "Good intent", "value": 11783 },
+            { "id": "y2.03", "parent": "y1.1", "name": "Malicious Call", "value": 1209 },
+            { "id": "y2.04", "parent": "y1.2", "name": "Chimney Fire", "value": 28 },
+            { "id": "y2.05", "parent": "y1.2", "name": "Late Call", "value": 6 },
+            { "id": "y2.06", "parent": "y1.2", "name": "Primary Fire", "value": 10202 },
+            { "id": "y2.07", "parent": "y1.2", "name": "Secondary Fire", "value": 9425 },
+            { "id": "y2.08", "parent": "y1.3", "name": "Advice Only", "value": 555 },
+            { "id": "y2.09", "parent": "y1.3", "name": "Animal assistance incidents", "value": 608 },
+            { "id": "y2.10", "parent": "y1.3", "name": "Assist other agencies", "value": 672 },
+            { "id": "y2.11", "parent": "y1.3", "name": "Effecting entry/exit", "value": 6921 },
+            { "id": "y2.12", "parent": "y1.3", "name": "Evacuation (no fire)", "value": 199 },
+            { "id": "y2.13", "parent": "y1.3", "name": "Flood call attended - Batch mobilised", "value": 79 },
+            { "id": "y2.14", "parent": "y1.3", "name": "Flooding", "value": 7998 },
+            { "id": "y2.15", "parent": "y1.3", "name": "Hazardous Materials incident", "value": 624 },
+            { "id": "y2.16", "parent": "y1.3", "name": "Lift Release", "value": 5567 },
+            { "id": "y2.17", "parent": "y1.3", "name": "Making Safe (not RTC)", "value": 868 },
+            { "id": "y2.18", "parent": "y1.3", "name": "Medical Incident", "value": 562 },
+            { "id": "y2.19", "parent": "y1.3", "name": "Medical Incident - Co-responder", "value": 2 },
+            { "id": "y2.20", "parent": "y1.3", "name": "No action (not false alarm)", "value": 2144 },
+            { "id": "y2.21", "parent": "y1.3", "name": "Other Transport incident", "value": 307 },
+            { "id": "y2.22", "parent": "y1.3", "name": "Other rescue/release of persons", "value": 394 },
+            { "id": "y2.23", "parent": "y1.3", "name": "RTC (Road Traffic Collision)", "value": 4398 },
+            { "id": "y2.24", "parent": "y1.3", "name": "Removal of objects from people", "value": 370 },
+            { "id": "y2.25", "parent": "y1.3", "name": "Rescue or evacuation from water", "value": 46 },
+            { "id": "y2.26", "parent": "y1.3", "name": "Spills and Leaks (not RTC)", "value": 843 },
+            { "id": "y2.27", "parent": "y1.3", "name": "Stand By", "value": 55 },
+            { "id": "y2.28", "parent": "y1.3", "name": "Suicide/attempts", "value": 242 },
+            { "id": "y2.29", "parent": "y1.3", "name": "Water provision", "value": 3 }
+        ]
+        // 2019
+        var data_2019 = [
+            { "id": "y0.0", "parent": "", "name": "Year 2019", "value": 105008 },
+            { "id": "y1.1", "parent": "y0.0", "name": "False Alarm", "value": 53985 },
+            { "id": "y1.2", "parent": "y0.0", "name": "Fire", "value": 17982 },
+            { "id": "y1.3", "parent": "y0.0", "name": "Special Service", "value": 33041 },
+            { "id": "y2.01", "parent": "y1.1", "name": "AFA (Automatic Fire Alarms)", "value": 41477 },
+            { "id": "y2.02", "parent": "y1.1", "name": "Good intent", "value": 11350 },
+            { "id": "y2.03", "parent": "y1.1", "name": "Malicious Call", "value": 1158 },
+            { "id": "y2.04", "parent": "y1.2", "name": "Chimney Fire", "value": 22 },
+            { "id": "y2.05", "parent": "y1.2", "name": "Late Call", "value": 7 },
+            { "id": "y2.06", "parent": "y1.2", "name": "Primary Fire", "value": 9666 },
+            { "id": "y2.07", "parent": "y1.2", "name": "Secondary Fire", "value": 8287 },
+            { "id": "y2.08", "parent": "y1.3", "name": "Advice Only", "value": 580 },
+            { "id": "y2.09", "parent": "y1.3", "name": "Animal assistance incidents", "value": 601 },
+            { "id": "y2.10", "parent": "y1.3", "name": "Assist other agencies", "value": 718 },
+            { "id": "y2.11", "parent": "y1.3", "name": "Effecting entry/exit", "value": 7049 },
+            { "id": "y2.12", "parent": "y1.3", "name": "Evacuation (no fire)", "value": 197 },
+            { "id": "y2.13", "parent": "y1.3", "name": "Flood call attended - Batch mobilised", "value": 87 },
+            { "id": "y2.14", "parent": "y1.3", "name": "Flooding", "value": 6799 },
+            { "id": "y2.15", "parent": "y1.3", "name": "Hazardous Materials incident", "value": 734 },
+            { "id": "y2.16", "parent": "y1.3", "name": "Lift Release", "value": 5627 },
+            { "id": "y2.17", "parent": "y1.3", "name": "Making Safe (not RTC)", "value": 1017 },
+            { "id": "y2.18", "parent": "y1.3", "name": "Medical Incident", "value": 575 },
+            { "id": "y2.19", "parent": "y1.3", "name": "No action (not false alarm)", "value": 2234 },
+            { "id": "y2.20", "parent": "y1.3", "name": "Other Transport incident", "value": 356 },
+            { "id": "y2.21", "parent": "y1.3", "name": "Other rescue/release of persons", "value": 379 },
+            { "id": "y2.22", "parent": "y1.3", "name": "RTC (Road Traffic Collision)", "value": 4483 },
+            { "id": "y2.23", "parent": "y1.3", "name": "Removal of objects from people", "value": 430 },
+            { "id": "y2.24", "parent": "y1.3", "name": "Rescue or evacuation from water", "value": 54 },
+            { "id": "y2.25", "parent": "y1.3", "name": "Spills and Leaks (not RTC)", "value": 796 },
+            { "id": "y2.26", "parent": "y1.3", "name": "Stand By", "value": 73 },
+            { "id": "y2.27", "parent": "y1.3", "name": "Suicide/attempts", "value": 250 },
+            { "id": "y2.28", "parent": "y1.3", "name": "Use of Special Operations Room", "value": 2 }
+        ]
+        // 2020
+        var data_2020 = [
+            { "id": "y0.0", "parent": "", "name": "Year 2020", "value": 98567 },
+            { "id": "y1.1", "parent": "y0.0", "name": "False Alarm", "value": 50187 },
+            { "id": "y1.2", "parent": "y0.0", "name": "Fire", "value": 17400 },
+            { "id": "y1.3", "parent": "y0.0", "name": "Special Service", "value": 30980 },
+            { "id": "y2.01", "parent": "y1.1", "name": "AFA (Automatic Fire Alarms)", "value": 37908 },
+            { "id": "y2.02", "parent": "y1.1", "name": "Good intent", "value": 11311 },
+            { "id": "y2.03", "parent": "y1.1", "name": "Malicious Call", "value": 968 },
+            { "id": "y2.04", "parent": "y1.2", "name": "Chimney Fire", "value": 20 },
+            { "id": "y2.05", "parent": "y1.2", "name": "Late Call", "value": 3 },
+            { "id": "y2.06", "parent": "y1.2", "name": "Primary Fire", "value": 8754 },
+            { "id": "y2.07", "parent": "y1.2", "name": "Secondary Fire", "value": 8623 },
+            { "id": "y2.08", "parent": "y1.3", "name": "Advice Only", "value": 556 },
+            { "id": "y2.09", "parent": "y1.3", "name": "Animal assistance incidents", "value": 756 },
+            { "id": "y2.10", "parent": "y1.3", "name": "Assist other agencies", "value": 1051 },
+            { "id": "y2.11", "parent": "y1.3", "name": "Effecting entry/exit", "value": 6731 },
+            { "id": "y2.12", "parent": "y1.3", "name": "Evacuation (no fire)", "value": 231 },
+            { "id": "y2.13", "parent": "y1.3", "name": "Flood call attended - Batch mobilised", "value": 160 },
+            { "id": "y2.14", "parent": "y1.3", "name": "Flooding", "value": 6527 },
+            { "id": "y2.15", "parent": "y1.3", "name": "Hazardous Materials incident", "value": 782 },
+            { "id": "y2.16", "parent": "y1.3", "name": "Lift Release", "value": 4385 },
+            { "id": "y2.17", "parent": "y1.3", "name": "Making Safe (not RTC)", "value": 1312 },
+            { "id": "y2.18", "parent": "y1.3", "name": "Medical Incident", "value": 597 },
+            { "id": "y2.19", "parent": "y1.3", "name": "No action (not false alarm)", "value": 2437 },
+            { "id": "y2.20", "parent": "y1.3", "name": "Other Transport incident", "value": 238 },
+            { "id": "y2.21", "parent": "y1.3", "name": "Other rescue/release of persons", "value": 378 },
+            { "id": "y2.22", "parent": "y1.3", "name": "RTC (Road Traffic Collision)", "value": 3397 },
+            { "id": "y2.23", "parent": "y1.3", "name": "Removal of objects from people", "value": 476 },
+            { "id": "y2.24", "parent": "y1.3", "name": "Rescue or evacuation from water", "value": 54 },
+            { "id": "y2.25", "parent": "y1.3", "name": "Spills and Leaks (not RTC)", "value": 620 },
+            { "id": "y2.26", "parent": "y1.3", "name": "Stand By", "value": 37 },
+            { "id": "y2.27", "parent": "y1.3", "name": "Suicide/attempts", "value": 242 },
+            { "id": "y2.28", "parent": "y1.3", "name": "Use of Special Operations Room", "value": 13 }
+        ]
+    </script>
+
+
+    <!-- start plotting ;) -->
+    <div id="container1">
+    </div>
+
+    <!-- 1. set the default view -->
+    <!-- year 2009 -->
+    <script>
+        // Add thound separation sign
+        Highcharts.setOptions({ lang: { thousandsSep: ',' } });
+
+        Highcharts.theme = {
+            colors: ["transparent", '#7a5195', '#ef5675', '#ffa600'],
+        };
+        Highcharts.setOptions(Highcharts.theme);
+
+        Highcharts.chart('container1', {
+
+            // height and titles
+            chart: { height: '100%' },
+            title: { text: 'Type of incidents in London at 2009' },
+            subtitle: { text: 'Data source：<a>London Fire Brigade</a>' },
+
+            //settings
+            series: [{
+                type: "sunburst",
+                data: data_2009,
+                //colors: ['#7a5195', '#ef5675', '#ffa600'],
+                opacity: 0.8,
+                allowDrillToNode: true,
+                levels: [{
+                    level: 2,
+                    colorByPoint: true,
+                    dataLabels: { rotationMode: 'parallel' }
+                },
+                {
+                    level: 3,
+                    colorVariation: { key: 'brightness', to: -0.5 }
+                }
+                ]
+            }],
+            tooltip: {
+                headerFormat: "",
+                pointFormat: '<b>{point.name}</b> has <b>{point.value}</b> cases'
+            }
+        });
+    </script>
+
+    <!-- 2. set the responding for slider -->
+    <script>
+        // recall selection
+        var year_selection = document.getElementById("selector_year");
+        // merge datalist
+        var data_set_list = [
+            data_2009, data_2010, data_2011, data_2012, data_2013, data_2014,
+            data_2015, data_2016, data_2017, data_2018, data_2019, data_2020
+        ];
+        // =0  means year2009, it is the format
+        var year_selected = "0";
+
+        // set 'current_dataset', it should be used as the responding dataset
+        var current_dataset = data_set_list[parseInt(year_selected)];
+
+        // start responding ;)
+        function f_update_current_selection_var() {
+            year_selected = year_selection.value;
+            current_dataset = data_set_list[parseInt(year_selected)];
+        };
+
+        // plotting~~~
+        function f_updated_current_data_shown() {
+
+            // filter year from text to create title
+            var selectedText = year_selection.options[year_selection.selectedIndex].text;
+
+            Highcharts.theme = {
+                colors: ["transparent", '#7a5195', '#ef5675', '#ffa600']
+            };
+
+            Highcharts.setOptions(Highcharts.theme);
+
+            Highcharts.chart('container1', {
+
+                // height and title
+                chart: { height: '100%' },
+                title: { text: 'Type of incidents in London at ' + selectedText },
+                subtitle: { text: 'Data source: <a>London Fire Brigade</a>' },
+
+                // settings
+                series: [{
+                    type: "sunburst",
+                    data: current_dataset,
+                    allowDrillToNode: true,
+                    cursor: 'pointer',
+                    //colors: ['#7a5195', '#ef5675', '#ffa600'],
+                    opacity: 0.8,
+                    levels: [{
+                        level: 2,
+                        colorByPoint: true,
+                        dataLabels: { rotationMode: 'parallel' }
+                    },
+                    {
+                        level: 3,
+                        colorVariation: { key: 'brightness', to: -0.5 }
+                    }]
+
+                }],
+                tooltip: {
+                    headerFormat: "",
+                    pointFormat: '<b>{point.name}</b> has <b>{point.value}</b> cases'
+                }
+            });
+        };
+
+        // updating~~~~~~~
+        document.getElementById("selector_year").addEventListener("change", function (e) {
+            f_update_current_selection_var();
+            f_updated_current_data_shown();
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>
