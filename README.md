@@ -11,6 +11,6 @@ Following the order of portfolios, our members are: Botond Vegh, Qia Chen, Yue L
 
 Here only host the projects codes of Yue and Hanxiang.
 
-Qia is using flourish, here is the [link1](https://public.flourish.studio/visualisation/6146011/), [link2](https://public.flourish.studio/visualisation/6183281/)
+Qia is using flourish, go to [link1](https://public.flourish.studio/visualisation/6146011/), [link2](https://public.flourish.studio/visualisation/6183281/)
 
 For Boti's project, please go to [his github](https://github.com/botivegh/fire-brigade-map)
