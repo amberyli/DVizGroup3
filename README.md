@@ -7,7 +7,7 @@ Following the order of portfolios, our members are: Botond Vegh, Qia Chen, Yue L
 [View our website](https://amberyli.github.io/DVizGroup3/)
 
 [See our presentation video](https://drive.google.com/drive/folders/1D2lx5v4-mv1h8jHwe7wdM6JMip5SdQuG?usp=sharing)
-
+[full version](https://www.dropbox.com/s/ex2wq4xfsldl8s1/dviz-group3.mp4?dl=0)
 
 
 ## About our projects
