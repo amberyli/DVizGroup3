@@ -19,6 +19,7 @@ Qia is using flourish, go to [link1](https://public.flourish.studio/visualisatio
 
 For Boti's project, please go to [his github](https://github.com/botivegh/fire-brigade-map)
 
+**Note** in the project file, the files project 1, 2-1, 2-2, 3, 4 are used to add header, not the project itself.
 
 ## Original Dataset
 
