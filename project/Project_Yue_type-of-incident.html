@@ -3,23 +3,7 @@
 <html>
 
 <head>
-
-    <!-- CSS style -->
-    <style>
-        #selector_year {
-            float: right
-        }
-
-        #container1 {
-            margin: 0 auto;
-            width: 46%;
-            margin-left: 25%;
-            margin-top: 2%
-        }
-
-    </style>
-
-    <!-- Use highcharts  -->
+    <!----------------------------------------  Use highcharts  ----------------------------------->
     <!-- highchart script 1-->
     <script src="https://code.highcharts.com/highcharts.js">
     </script>
@@ -29,11 +13,27 @@
     <!-- highchart script 3-->
     <script src="https://code.highcharts.com.cn/highcharts/modules/sunburst.js"></script>
 
+    <!----------------------------------------  CSS style  ---------------------------------------->
+    <style>
+        #selector_year {
+            float: right
+        }
+
+        #container1 {
+            margin: 0 auto;
+            width: 56%;
+            margin-left: 20%;
+        }
+    </style>
+
+
 </head>
 
 <body>
 
-
+    <!--------------------------------------------------------------------------------------->
+    <!--------------------------------------  Selector -------------------------------------->
+    <!--------------------------------------------------------------------------------------->
     <!-- Add selector to choose years -->
     <select class="dropdown" id="selector_year">
         <option selected disabled>Which year you want to explore ;)</option>
@@ -52,8 +52,7 @@
     </select>
 
 
-
-    <!-- load data -->
+    <!--------------------------------------load data -------------------------------------->
     <script>
         // year 2009
         var data_2009 = [
@@ -484,9 +483,13 @@
     </script>
 
 
-    <!-- start plotting ;) -->
+    <!----------------------------------------------------------------------------------------------->
+    <!-------------------------------------- start plotting ;) -------------------------------------->
+    <!----------------------------------------------------------------------------------------------->
     <div id="container1">
     </div>
+
+
 
     <!-- 1. set the default view -->
     <!-- year 2009 -->
@@ -501,13 +504,20 @@
 
         Highcharts.chart('container1', {
 
+
             // height and titles
             chart: { height: '100%' },
             title: { text: 'Type of incidents in London at 2009' },
             subtitle: { text: 'Data source：<a>London Fire Brigade</a>' },
 
+            caption: {
+                x:80,
+                text: ' <b>False Alarm</b> <br> 1. <em>Automatic False Alarms (AFA)</em> are calls initiated by fire alarm and fire-fighting equipment. <br> 2. <em>Good Intent</em> are calls made in good faith in the belief that there really was an incident. <br>3. <em>Malicious Call</em> are calls of getting the fireman to attend a non-existent event. <br> <b>Fire</b> <br> 1. <em>Primary</em> are serious fires that harm people or cause damage to property. <br> 2. <em>Secondary</em> are generally small outdoor fires. <br> <b>Special Service</b> <br>The cases not about fires or alarms, eg. Flooding, RTC (Road Traffic Collision), Lift Release and etc.'
+            },
+
             //settings
             series: [{
+
                 type: "sunburst",
                 data: data_2009,
                 //colors: ['#7a5195', '#ef5675', '#ffa600'],
