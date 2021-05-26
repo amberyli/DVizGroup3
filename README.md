@@ -6,20 +6,24 @@ Following the order of portfolios, our members are: Botond Vegh, Qia Chen, Yue L
 
 [View our website](https://amberyli.github.io/DVizGroup3/)
 
-[See our presentation video](https://drive.google.com/drive/folders/1D2lx5v4-mv1h8jHwe7wdM6JMip5SdQuG?usp=sharing)
-
-[full version](https://www.dropbox.com/s/ex2wq4xfsldl8s1/dviz-group3.mp4?dl=0)
+[Watch our presentation video](https://www.dropbox.com/s/ex2wq4xfsldl8s1/dviz-group3.mp4?dl=0)
 
 
-## About our projects
+## About codes
 
-Here you can find the projects codes of Yue and Hanxiang.
+At here:
 
-Qia is using flourish, go to [link1](https://public.flourish.studio/visualisation/6146011/), [link2](https://public.flourish.studio/visualisation/6183281/)
+- **Yue** ([link](https://github.com/amberyli/DVizGroup3/blob/main/project/Project_Yue_type-of-incident.html))
 
-For Boti's project, please go to [his github](https://github.com/botivegh/fire-brigade-map)
+- **Hanxiang** ([link](https://github.com/amberyli/DVizGroup3/blob/main/project/Project_Hanxiang_London_Fire_Accident.html)).
 
-**Note** in the project file, the files project 1, 2-1, 2-2, 3, 4 are used to add header, not the project itself.
+External: 
+
+- **Qia** is using flourish, go to [link1](https://public.flourish.studio/visualisation/6146011/), [link2](https://public.flourish.studio/visualisation/6183281/)
+
+- **Boti** has the codes available in his github, [link](https://github.com/botivegh/fire-brigade-map)
+
+> **Note**: In the project file, the files project 1, 2-1, 2-2, 3, 4 are used to add header, not the project itself.
 
 ## Original Dataset
 
